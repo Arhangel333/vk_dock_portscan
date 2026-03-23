@@ -1,0 +1,4 @@
+requests>=2.31.0 
+aiohttp>=3.9.1            # Для асинхронных запросов
+python-telegram-bot>=20.6 # Удобная обертка для Telegram
+configparser>=6.0.0       # Для чтения config.ini
