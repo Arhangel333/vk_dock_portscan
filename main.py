@@ -18,7 +18,7 @@ Ad_flags = config['masscan']['Ad_flags']
 Ping = config['masscan']['Ping']
 
 fullwork = 1 #0 - не работаем 1+ - работаем
-verbouse = 1
+verbose = 1
 
 def check_history(history, cash):
     if not cash:
@@ -56,9 +56,9 @@ def check_history(history, cash):
                 
                 closed_ports.add(key)
     
-    if new_ports and verbouse:
+    if new_ports and verbose:
         print(f"Новых портов: {len(new_ports)}")
-    if closed_ports and verbouse:
+    if closed_ports and verbose:
         print(f"Закрывшихся портов: {len(closed_ports)}")
     
     return new_ports, closed_ports
@@ -101,7 +101,7 @@ if ans1 == "y":
 
 first_comm = f"masscan {ip} -p{ports} --rate {rate} {Ad_flags} -oJ {Outfile2}"
 
-if verbouse:
+if verbose:
     print(f"Получены параметры: ip = {ip}, ports = {ports}, rate = {rate}")
     print(f"Будет выполнено")
     print(first_comm)
@@ -135,7 +135,7 @@ except (FileNotFoundError, json.JSONDecodeError):
 msg, closed = check_history(history, cash)
 
 
-if verbouse:
+if verbose:
     print(msg)
     print(closed)
     print("#####"*10)
@@ -154,7 +154,7 @@ for bastrd in closed:
     print(f"old : {bastrd}")
     del history[bastrd]
 
-if verbouse:
+if verbose:
     print(closed)
     print("#####"*10)
     for i in history:
